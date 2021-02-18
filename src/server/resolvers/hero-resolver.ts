@@ -1,19 +1,22 @@
-import { Resolver, Query } from 'type-graphql'
+import { Resolver, Query } from 'type-graphql';
 
-import { Hero } from '../entities/hero'
-import { InjectRepository } from 'typeorm-typedi-extensions'
-import { Repository } from 'typeorm'
-import { Service } from 'typedi'
+import { Hero } from '../entities/hero';
+import { InjectRepository } from 'typeorm-typedi-extensions';
+import { Repository } from 'typeorm';
+import { Service } from 'typedi';
 
 @Service()
-@Resolver(of => Hero)
+@Resolver((of) => Hero)
 export class HeroResolver {
-  constructor(
-    @InjectRepository(Hero) private readonly heroRepository: Repository<Hero>
-  ) { }
+	constructor(@InjectRepository(Hero) private readonly heroRepository: Repository<Hero>) {}
 
-  @Query(returns => [Hero])
-  heroes(): Promise<Hero[]> {
-    return this.heroRepository.find()
-  }
+	@Query((returns) => [Hero])
+	heroes(): Promise<Hero[]> {
+		return this.heroRepository.find();
+	}
+
+	@Query((returns) => Hero)
+	getById(id: string): Promise<Hero> {
+		return this.heroRepository.findOne(id);
+	}
 }

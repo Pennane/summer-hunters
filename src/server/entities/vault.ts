@@ -9,7 +9,7 @@ export class Vault {
 	id!: number;
 
 	//☆.。.:*・°☆.。.:*・°☆.。.:*・°☆.。.:*
-	// @Authorized("ADMIN")
+	@Authorized(['TreasureKeeper'])
 	@Field()
 	@Column()
 	treasures: string;

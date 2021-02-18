@@ -10,6 +10,7 @@
 		"lint": "tslint './src/**/*.ts*' --format stylish --force",
 		"start:front": "yarn run start-dev",
 		"start:back": "ts-node src/server/index.ts",
+		"dev:back": "nodemon --watch src/server --ext ts --exec yarn start:back",
 		"start-dev": "webpack serve --config config/webpack/dev.ts",
 		"test": "jest --watch --coverage --config=config/jest.json"
 	},
@@ -22,6 +23,7 @@
 		"@types/webpack-dev-server": "^3.11.1",
 		"apollo-boost": "0.4.9",
 		"apollo-server": "2.19.2",
+		"dotenv": "^8.2.0",
 		"graphql": "15.5.0",
 		"graphql-tag": "2.11.0",
 		"jsonwebtoken": "^8.5.1",
@@ -49,6 +51,7 @@
 		"file-loader": "6.2.0",
 		"html-webpack-plugin": "4.5.1",
 		"image-webpack-loader": "7.0.1",
+		"nodemon": "^2.0.7",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
 		"react-hot-loader": "4.13.0",
