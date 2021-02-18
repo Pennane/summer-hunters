@@ -40,12 +40,26 @@ interface IHeroIndexProps {}
 
 const HeroCardContainer = styled.div`
 	display: flex;
-	padding: 50px;
+	margin: 15px;
 	align-self: center;
 	max-width: 1150px;
 	@media (min-width: 1400px) {
 		margin-left: auto;
 		margin-right: auto;
+	}
+	overflow: hidden;
+	scroll-snap-type: x mandatory;
+	overflow-x: auto;
+
+	block-size: 80%;
+
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 80%;
+
+	@media (min-width: 800px) {
+		block-size: 60%;
+		grid-auto-columns: 60%;
 	}
 `;
 
