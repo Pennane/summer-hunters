@@ -1,7 +1,18 @@
 import { DeepPartial, getRepository } from 'typeorm';
 import { Hero } from './entities/hero';
+import { Role } from './entities/role';
 import { Vault } from './entities/vault';
 import { TElement } from './types/element';
+
+const HERO_ROLE: DeepPartial<Role> = {
+	id: 1,
+	name: 'Hero',
+};
+
+const TREASUREKEEPER_ROLE: DeepPartial<Role> = {
+	id: 2,
+	name: 'TreasureKeeper',
+};
 
 const PORCU: DeepPartial<Hero> = {
 	name: 'Porcu',
@@ -37,10 +48,10 @@ const PORCU: DeepPartial<Hero> = {
 			name: 'Sneaky punch',
 			damage: 25,
 			element: 'Physical',
-			description:
-				'Porcu spins right arm really fast as a decoy, then quickly punches with his left straight to the opponents face.',
+			description: 'Porcu spins right arm really fast as a decoy, then quickly punches with his left straight to the opponents face.',
 		},
 	],
+	roles: [HERO_ROLE],
 };
 
 const LISA: DeepPartial<Hero> = {
@@ -85,6 +96,7 @@ const LISA: DeepPartial<Hero> = {
 			description: 'Shoots a quick shot, drawing her gun from a holster and putting it back.',
 		},
 	],
+	roles: [HERO_ROLE],
 };
 
 const GIDEON: DeepPartial<Hero> = {
@@ -124,17 +136,22 @@ const GIDEON: DeepPartial<Hero> = {
 			description: 'Shoots a psychic beam.',
 		},
 	],
+	roles: [HERO_ROLE, TREASUREKEEPER_ROLE],
 };
 
 export const seedDatabase = async () => {
 	const heroRepository = getRepository(Hero);
+	const roleRepository = getRepository(Role);
 	const vaultRepository = getRepository(Vault);
+
+	const roles = roleRepository.create([HERO_ROLE, TREASUREKEEPER_ROLE]);
+	await roleRepository.save(roles);
 
 	const heroes = heroRepository.create([PORCU, LISA, GIDEON]);
 	await heroRepository.save(heroes);
 
-	const vault = vaultRepository.create({ 
-		treasures: 'This should be behind authentication.  ✧･ﾟ: *✧･ﾟ:* Loads of gold.　 *:･ﾟ✧*:･ﾟ✧' 
+	const vault = vaultRepository.create({
+		treasures: 'This should be behind authentication.  ✧･ﾟ: *✧･ﾟ:* Loads of gold.　 *:･ﾟ✧*:･ﾟ✧',
 	});
 	await vaultRepository.save(vault);
 };

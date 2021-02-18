@@ -1,8 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, JoinColumn, OneToOne } from 'typeorm';
 import { ObjectType, ID, Field } from 'type-graphql';
 import { Lazy } from '../helpers';
-import { Skill } from '../entities/skill';
+import { Skill } from './skill';
 import { Attribute } from './attribute';
+import { Role } from './role';
 
 @Entity()
 @ObjectType()
@@ -36,4 +37,9 @@ export class Hero {
 	@OneToOne((type) => Attribute, { lazy: true, cascade: ['insert'] })
 	@JoinColumn()
 	attributes: Lazy<Attribute>;
+
+	@Field((type) => [Role])
+	@ManyToMany((type) => Role, { lazy: true, cascade: ['insert'] })
+	@JoinTable()
+	roles: Lazy<Role[]>;
 }
