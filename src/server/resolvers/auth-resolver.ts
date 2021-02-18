@@ -15,7 +15,7 @@ export class AuthTokenResolver {
 	constructor(private readonly heroResolver: HeroResolver) {}
 
 	@Query((returns) => AuthToken)
-	async authenticate(@Arg('userId') userId: string): Promise<AuthToken> {
+	async authenticate(@Arg('userId') userId: number): Promise<AuthToken> {
 		const hero = await this.heroResolver.getById(userId);
 		const jwt = await AuthService().generateJwtForHero(hero);
 		return { jwt };
