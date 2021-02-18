@@ -198,7 +198,6 @@ const AttributesIndex = ({ heroAttributes }) => (
 );
 
 const SkillsIndex = ({ skills }: { skills: HeroSkill[] }) => {
-	console.log(skills);
 	return (
 		<div>
 			<h3>Skills</h3>
