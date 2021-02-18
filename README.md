@@ -1,5 +1,31 @@
 # Home assignment
 
+### Backend
+
+Completing the assignment proved to be a real learning experience for sure.
+Although I have worked a bit with GraphQL in the past, I had never used this kind of comprehensive stack before, and there most likely are some, not the wisest practices used on this solution.
+
+After battling with library documentations for a while I indeed arrived at a working solution.
+
+Through the power of arbitrary nomination the hero Gideon has been granted the role of a `TreasureKeeper` that can access the vault. And for good merit, all the other heroes have received a `hero` role as well.
+
+There is an oversight in my solution that I was not able to get around.
+I was not able to import the hero resolver to the AuthChecker. To get around the fact that I could
+not access the graphQL data, I changed the JWT to include the roles of the hero as well as the hero id.
+This means that if we were to remove the TreasureKeeper role from the hero, the JWT would still function and that is not great.
+
+Apparently, Class-based AuthChecker would have done the trick, but that is only included in a [future version](https://github.com/MichalLytek/type-graphql/commit/05dae42ce3d9cb11c754697685c969275884d69d) of type-graphql.
+
+### Frontend
+
+Even though my main focus was on the Backend, I thought that I would like to try what the frontend assignment would have going for it.
+
+Using the `styled-components` I created a quick and simple 'overflowing' card view.
+
+![view](./assets/view.png)
+
+## Original notes
+
 For this assignment we have created a GraphQL API and a simple React application that queries infromation from that API. It is your job to finalize this application, either from frontend or backend side. More information of these tracks down below in Tracks section.
 
 The application itself is built to be an "Index" of Heroes. These Heroes works as mercenaries and can be summoned to help fight supervillains. In the Frontend Track your task is to built visuals for the Index. In the Backend track your job is to secure access to Heroes Vault, where they keep their treasures.
