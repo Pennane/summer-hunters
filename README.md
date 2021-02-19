@@ -1,21 +1,20 @@
 # Home assignment
 
 ### Backend
+Concluding the assignment proved to be a real learning experience for sure. Although I have worked a bit with GraphQL in the past, I had never used this type of comprehensive stack before.
 
-Completing the assignment proved to be a real learning experience for sure.
-Although I have worked a bit with GraphQL in the past, I had never used this kind of comprehensive stack before, and there most likely are some, not the wisest practices used on this solution.
+After battling with library documentations for a while, I indeed arrived at a practical solution.
 
-After battling with library documentations for a while I indeed arrived at a working solution.
+Through the power of arbitrary nomination the hero Gideon has been granted the role of a `TreasureKeeper` that can access the vault. And for good merit, all the  heroes have received a `hero` role as well.
 
-Through the power of arbitrary nomination the hero Gideon has been granted the role of a `TreasureKeeper` that can access the vault. And for good merit, all the other heroes have received a `hero` role as well.
+So authenticating with the `userId` of `"3"` grants a JWT that can be used to unlock the vault and the secrets behind it.
 
-So authenticating with user id 3 grants a JWT that can be used to unlock the vault.
 
 ### Frontend
 
 Even though my main focus was on the Backend, I thought that I would like to try what the frontend assignment would have going for it.
 
-Using the `styled-components` I created a quick and simple 'overflowing' card view.
+Using the styled-components I created a quick and simple 'overflowing' card view.
 
 ![view](./assets/view.png)
 
