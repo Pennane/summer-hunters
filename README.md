@@ -1,5 +1,7 @@
 # Home assignment
 
+To see what I've actually done, see the [comparison](https://github.com/Pennane/summer-hunters/compare/52a8488c910e0e1b257e41c545b7c2b1f0879f1d...main)
+
 ### Backend
 Concluding the assignment proved to be a real learning experience for sure. Although I have worked a bit with GraphQL in the past, I had never used this type of comprehensive stack before.
 
