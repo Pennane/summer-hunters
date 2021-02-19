@@ -23,19 +23,19 @@ const customAuthChecker: AuthChecker<AuthenticationContext> = async ({ context: 
 
 	if (!hero) return false;
 
-	// If the hero exists and the query has @Authorized()
+	// If the hero exists and the query has @Authorized() with no specified roles
 	if (roles.length === 0) {
 		return true;
 	}
 
 	const heroRoles = await hero.roles;
 
-	// If hero has a role included in the @Authorized(string[])
+	// If hero has a role included in the @Authorized(string[]), return true
 	if (heroRoles.some((role) => roles.includes(role.name))) {
 		return true;
 	}
 
-	// Else unauthorized
+	// else unauthorized
 	return false;
 };
 
