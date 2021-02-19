@@ -16,7 +16,7 @@ export class HeroResolver {
 	}
 
 	@Query((returns) => Hero)
-	getById(id: number): Promise<Hero> {
+	getById(id: string): Promise<Hero> {
 		return this.heroRepository.findOne(id);
 	}
 }
